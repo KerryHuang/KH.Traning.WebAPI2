@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
+using System.Web.Http.OData;
 using ApiHelperPage.Models;
 
 namespace ApiHelperPage.Controllers
@@ -26,8 +27,13 @@ namespace ApiHelperPage.Controllers
         /// </summary>
         /// <returns></returns>
         // GET: api/Products
+        [EnableQuery]
         public IQueryable<Product> GetProducts()
         {
+            // http://localhost:58572/api/Products?$top=5&$skip=5
+
+            // http://localhost:58572/api/Products?$filter=UnitPrice gt 100&orderby=ProductName
+
             return db.Products;
         }
 
