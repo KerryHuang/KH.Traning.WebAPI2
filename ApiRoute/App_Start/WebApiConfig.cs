@@ -19,6 +19,12 @@ namespace ApiRoute
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            //config.Routes.MapHttpRoute(
+            //    name: "bookBrowse",
+            //    routeTemplate: "store/{genre}",
+            //    defaults: new { controller = "store", action = "browse", id = RouteParameter.Optional }
+            //);
         }
     }
 }
