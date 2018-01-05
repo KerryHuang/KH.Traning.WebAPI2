@@ -548,6 +548,19 @@
             <param name="id">The identifier.</param>
             <returns></returns>
         </member>
+        <member name="M:ApiHelperPage.Handlers.ApiKeyHandler.#ctor(System.String)">
+            <summary>
+            key 由建構式注入
+            </summary>
+            <param name="key"></param>
+        </member>
+        <member name="M:ApiHelperPage.Handlers.ApiKeyHandler.ValidateKey(System.Net.Http.HttpRequestMessage)">
+            <summary>
+            由請求進行 key 參數檢查
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
         <member name="T:ApiHelperPage.Models.PostmanCollection">
             <summary>
             PostmanCollection

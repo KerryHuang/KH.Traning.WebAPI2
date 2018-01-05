@@ -17,8 +17,9 @@ namespace ApiHelperPage
             config.Filters.Add(new ApiVersionAttribute());
             config.Filters.Add(new ApiRunTimeAttribute());
 
-            config.MessageHandlers.Add(new DirectlyResponseHandler());
+            //config.MessageHandlers.Add(new DirectlyResponseHandler());
             config.MessageHandlers.Add(new DebugWriteHandler());
+            //config.MessageHandlers.Add(new ApiKeyHandler("SkillTree"));
 
 
             // Web API 路由

@@ -11,6 +11,7 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using System.Web.Http.OData;
 using System.Web.Http.Tracing;
+using ApiHelperPage.Filters;
 using ApiHelperPage.Models;
 
 namespace ApiHelperPage.Controllers
@@ -19,6 +20,7 @@ namespace ApiHelperPage.Controllers
     /// 產品資料
     /// </summary>
     /// <seealso cref="System.Web.Http.ApiController" />
+    [JwtAuthorize]
     public class ProductsController : ApiController
     {
         private Northwind db = new Northwind();
