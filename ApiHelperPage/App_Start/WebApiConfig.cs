@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ApiHelperPage.Filters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
@@ -11,6 +12,7 @@ namespace ApiHelperPage
         {
             // Web API 設定和服務
             config.EnableSystemDiagnosticsTracing();
+            config.Filters.Add(new ElmahErrorAttribute());
 
             // Web API 路由
             config.MapHttpAttributeRoutes();

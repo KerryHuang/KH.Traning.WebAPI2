@@ -14,6 +14,7 @@ namespace ApiHelperPage.Controllers
         // GET api/values
         public IEnumerable<string> Get()
         {
+            throw new NotImplementedException();
             return new string[] { "value1", "value2" };
         }
 

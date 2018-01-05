@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using System.Web.Http.OData;
+using System.Web.Http.Tracing;
 using ApiHelperPage.Models;
 
 namespace ApiHelperPage.Controllers
@@ -46,6 +47,7 @@ namespace ApiHelperPage.Controllers
         [ResponseType(typeof(Product))]
         public async Task<IHttpActionResult> GetProduct(int id)
         {
+            Configuration.Services.GetTraceWriter().Info(Request, "Products", "Get the list of products.");
             Product product = await db.Products.FindAsync(id);
             if (product == null)
             {
