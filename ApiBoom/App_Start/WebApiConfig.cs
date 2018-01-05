@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
-namespace ApiHelperPage
+namespace ApiBoom
 {
     public static class WebApiConfig
     {
         public static void Register(HttpConfiguration config)
         {
             // Web API 設定和服務
-            config.EnableSystemDiagnosticsTracing();
 
             // Web API 路由
             config.MapHttpAttributeRoutes();
