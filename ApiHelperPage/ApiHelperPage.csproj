@@ -221,6 +221,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Handlers\DebugWriteHandler.cs" />
+    <Compile Include="Handlers\DirectlyResponseHandler.cs" />
     <Compile Include="Models\Northwind.cs" />
     <Compile Include="Models\PostmanCollection.cs" />
     <Compile Include="Models\PostmanRequest.cs" />

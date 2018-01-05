@@ -1,4 +1,5 @@
 ﻿using ApiHelperPage.Filters;
+using ApiHelperPage.Handlers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,10 @@ namespace ApiHelperPage
             config.Filters.Add(new ElmahErrorAttribute());
             config.Filters.Add(new ApiVersionAttribute());
             config.Filters.Add(new ApiRunTimeAttribute());
+
+            config.MessageHandlers.Add(new DirectlyResponseHandler());
+            config.MessageHandlers.Add(new DebugWriteHandler());
+
 
             // Web API 路由
             config.MapHttpAttributeRoutes();
