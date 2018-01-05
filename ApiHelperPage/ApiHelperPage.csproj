@@ -215,6 +215,7 @@
     <Compile Include="Controllers\PostmanController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Filters\ApiRunTimeAttribute.cs" />
     <Compile Include="Filters\ApiVersionAttribute.cs" />
     <Compile Include="Filters\ElmahErrorAttribute.cs" />
     <Compile Include="Global.asax.cs">
