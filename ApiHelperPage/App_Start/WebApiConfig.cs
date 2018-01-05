@@ -22,6 +22,12 @@ namespace ApiHelperPage
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.Routes.MapHttpRoute(
+                name: "NotFound",
+                routeTemplate: "{*path}",
+                defaults: new { controller = "Error404", action = "NotFound" }
+            );
         }
     }
 }
