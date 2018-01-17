@@ -23,7 +23,7 @@ namespace ApiTest
             // 5.修改預設路由 "api/" 為 ""。
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "{controller}/{id}",
+                routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
         }

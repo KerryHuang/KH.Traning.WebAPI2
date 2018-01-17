@@ -13,12 +13,13 @@ using ApiTest.Models;
 
 namespace ApiTest.Controllers
 {
-    //[RoutePrefix("Orders")]
+    [RoutePrefix("Orders")]
     public class OrdersController : ApiController
     {
         private Northwind db = new Northwind();
 
         // GET: api/Orders
+        [Route("")]
         [EnableQuery]
         public IQueryable<Orders> GetOrders()
         {
@@ -26,6 +27,7 @@ namespace ApiTest.Controllers
         }
 
         // GET: api/Orders/5
+        [Route("{id:int}")]
         [ResponseType(typeof(Orders))]
         public IHttpActionResult GetOrders(int id)
         {
@@ -154,6 +156,51 @@ namespace ApiTest.Controllers
         private bool OrdersExists(int id)
         {
             return db.Orders.Count(e => e.OrderID == id) > 0;
-        }        
+        }
+
+        [Route("daterange/{startDate:datetime}/{endDate:datetime}")]
+        public IHttpActionResult GetByOrderDateRange(DateTime startDate, DateTime endDate)
+        {
+            var orders = db.Orders.Where(x => x.OrderDate == startDate);
+
+            if (orders == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(orders);
+        }
+
+        [Route("date/{*startDate:datetime}")]
+        [ResponseType(typeof(Orders))]
+        public IHttpActionResult GetByOrderDate(DateTime startDate)
+        {
+            var orders = db.Orders.Where(x => x.OrderDate >= startDate);
+
+            if (orders == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(orders);
+        }
+
+        [Route("ship/{name:minlength(1)}/{address:minlength(1)}")]
+        public IHttpActionResult GetByShip(string name, string address)
+        {
+            var orders = db.Orders.Where(x => x.ShipName.Contains(name));
+            
+            if (!string.IsNullOrEmpty(address))
+            {
+                orders = orders.Where(x => x.ShipName.Contains(address));
+            }
+
+            if (orders == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(orders);
+        }
     }
 }

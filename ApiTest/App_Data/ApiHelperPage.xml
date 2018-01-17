@@ -481,5 +481,40 @@
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
+        <member name="M:ApiTest.Controllers.Order_DetailsController.GetOrder_Details">
+            <summary>
+            Gets the order details.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ApiTest.Controllers.Order_DetailsController.GetOrder_Details(System.Int32)">
+            <summary>
+            Gets the order details.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ApiTest.Controllers.Order_DetailsController.PutOrder_Details(System.Int32,ApiTest.Models.Order_Details)">
+            <summary>
+            Puts the order details.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="order_Details">The order details.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ApiTest.Controllers.Order_DetailsController.PostOrder_Details(ApiTest.Models.Order_Details)">
+            <summary>
+            Posts the order details.
+            </summary>
+            <param name="order_Details">The order details.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ApiTest.Controllers.Order_DetailsController.DeleteOrder_Details(System.Int32)">
+            <summary>
+            Deletes the order details.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns></returns>
+        </member>
     </members>
 </doc>

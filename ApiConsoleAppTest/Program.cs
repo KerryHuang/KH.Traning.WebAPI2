@@ -12,7 +12,7 @@ namespace ApiConsoleAppTest
         static void Main(string[] args)
         {
             GetByID();
-            Get();
+            //Get();
             //Patch();
             //Put();
             //Patch();
@@ -28,6 +28,21 @@ namespace ApiConsoleAppTest
             IRestResponse response = client.Execute(request);
         }
 
+        static async Task GetAsync()
+        {
+            var client = new RestClient("http://localhost:5019/Orders");
+            var request = new RestRequest(Method.GET);
+            request.AddHeader("Postman-Token", "6c491af0-0169-3e17-87f4-76428e58866c");
+            request.AddHeader("Cache-Control", "no-cache");
+            var asyncHandler = client.ExecuteAsync<List<Orders>>(request, r =>
+            {
+                if (r.ResponseStatus == ResponseStatus.Completed)
+                {
+                    Console.Write("OK");
+                }
+            });
+        }
+
         static void GetByID()
         {
             var client = new RestClient("http://localhost:5019/Orders/10248");
@@ -35,6 +50,29 @@ namespace ApiConsoleAppTest
             request.AddHeader("Postman-Token", "99af7dfa-daeb-89ce-ebd3-195fdba9bdc5");
             request.AddHeader("Cache-Control", "no-cache");
             IRestResponse response = client.Execute(request);
+            var name = response.Content;
+        }
+
+        static void GetByIDAsync()
+        {
+            var client = new RestClient("http://localhost:5019/Orders/10248");
+            var request = new RestRequest(Method.GET);
+            request.AddHeader("Postman-Token", "99af7dfa-daeb-89ce-ebd3-195fdba9bdc5");
+            request.AddHeader("Cache-Control", "no-cache");           
+            var asyncHandle = client.ExecuteAsync<Orders>(request, r =>
+            {
+                if (r.ResponseStatus == ResponseStatus.Completed)
+                {
+                    Console.Write("OK");
+                    GetData(r.Data);
+                }
+            });
+            Console.ReadKey();
+        }
+
+        static void GetData(Orders data)
+        {
+            Console.Write(data.OrderID);
         }
 
         static void Patch()

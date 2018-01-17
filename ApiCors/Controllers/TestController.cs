@@ -9,7 +9,7 @@ using System.Web.Http.Cors;
 namespace ApiCors.Controllers
 {
     // TODO 下一步，在 Controller 加入 [EnableCors] 屬性：
-    [EnableCors(origins: "http://localhost:50281", headers: "*", methods: "*")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class TestController : ApiController
     {
         // TODO 修改 CURD 程式碼：
